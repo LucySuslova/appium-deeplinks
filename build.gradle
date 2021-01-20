@@ -1,0 +1,55 @@
+buildscript {
+    ext {
+        jUnitVersion = '5.6.3'
+        appium = '7.4.1'
+        selenide = '5.17.4'
+        lombokVersion = '1.18.8'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'io.freefair.lombok' version '4.1.6'
+}
+
+group 'io.github.lucysuslova'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+compileTestJava {
+    sourceCompatibility = JavaVersion.VERSION_14
+    targetCompatibility = JavaVersion.VERSION_14
+    options.compilerArgs += '-parameters'
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter:$jUnitVersion")
+    testImplementation("io.appium:java-client:$appium")
+    testImplementation("com.codeborne:selenide:$selenide")
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+}
+
+task runIos(type: Test) { Test task ->
+    task.systemProperties = System.properties
+    task.systemProperty 'platform', "ios"
+}
+
+task runAndroid(type: Test) { Test task ->
+    task.systemProperties = System.properties
+    task.systemProperty 'platform', "android"
+}

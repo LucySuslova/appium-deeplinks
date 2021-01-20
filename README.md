@@ -18,9 +18,9 @@ ___
 ___
 
 ### Built with
-Java 14
-JUnit 5
-Appium
-Selenide
-Gradle
+Java  
+JUnit5  
+Appium  
+Selenide  
+Gradle  
 Lombok
