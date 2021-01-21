@@ -1,6 +1,7 @@
 # appium-deeplinks
 
-Demo project how to open deep links across platforms (iOS, Android) using Appium on real devices.
+Demo project how to open deep links across platforms (iOS, Android) using Appium on real devices.  
+Based on [appiumpro] article.
 
 ### How to run
 to run tests against iOS:
@@ -12,7 +13,8 @@ to run tests against Android:
 ```./gradlew clean runAndroid```
 
 ___
-***Note!*** You need to have: 
+***Note!***  
+You need to have: 
 - running Appium server on localhost (http://127.0.0.1:4723) 
 - connected real device (proper capabilities should be provided)
 ___
@@ -24,3 +26,6 @@ Appium
 Selenide  
 Gradle  
 Lombok
+
+
+[appiumpro]: https://appiumpro.com/editions/84-reliably-opening-deep-links-across-platforms-and-devices
